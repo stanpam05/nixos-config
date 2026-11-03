@@ -24,6 +24,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       variables = import ./variables.nix;
+      theme = import ./themes/"${variables.theme}.nix";
     in
     {
 
@@ -32,7 +33,7 @@
         system = variables.host.system;
 
         # Arguements passed into all nix modules
-        specialArgs = { inherit inputs variables; }
+        specialArgs = { inherit inputs variables theme; }
 
         modules = [
           
@@ -51,6 +52,9 @@
 
               # Declaring the user's home directory
               users.$(user.username) = ./hosts/${variables.host.hostname}/home.nix;
+
+              # Declaring arguments that go into home modules
+              extraSpecialArgs = { inherit inputs variables theme; };
 
               # When a config file exists and Home Manager overwites it 
               # instead of deleting it, Home Manager will backup the config file

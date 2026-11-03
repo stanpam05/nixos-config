@@ -14,9 +14,8 @@
   colors = {
 
       # Backgrounds
-      background = "#1E2030";
-      surface = "#24273A";
-      surface-alt = "#2A2D42";
+      background = "#24273A";
+      foreground = "#2A2D42";
       overlay = "#363A4F";
 
       # Foreground / text

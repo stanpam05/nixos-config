@@ -30,7 +30,7 @@
   };
 
   # This is setup to use E
-  defaultLocale = "en_US.UTF-8"
+  defaultLocale = "en_US.UTF-8";
 
   # Theme, this is required
   # Should be the name of the theme file that resides in 
